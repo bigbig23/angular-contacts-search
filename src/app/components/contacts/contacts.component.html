@@ -1,0 +1,42 @@
+<div class="container spacer">
+  <div class="panel panel-primary">
+    <div class="panel-heading">List de Contacts</div>
+      <div class="panel body">
+
+        <div class="form-group">
+          <label>Mot cle:</label>
+            <input type="text" [(ngModel)]="motCle">
+            <button class="btn btn-primary" (click)="search()">Search</button>
+        </div>
+
+        <table class="table table-striped table-bordered">
+          <tr>
+            <th>ID</th>     <th>Nom</th>     <th>Prenom</th>     <th>Email</th> <th>Edit</th> <th>Delete</th>
+          </tr>
+          <tr *ngFor="let c of pageContact?.content">
+              <td>{{c.id}}</td>
+            <td>{{c.nom}}</td>
+            <td>{{c.prenom}}</td>
+            <td>{{c.email}}</td>
+            <td>
+              <a (click)="onEditContact(c.id)">Edit</a>
+              <!--why we used (click) not routerLink, bcoz i want transfer data with id,-->
+            </td>
+            <td>
+              <a (click)="onDeleteContact(c)">Delete</a>
+            </td>
+          </tr>
+
+        </table>
+
+        <div class="container">
+          <ul class="nav nav-pills">
+            <li [ngClass]="{'active':i==currentPage}" *ngFor="let p of pages;let i = index">
+              <a class="clickable" (click)="gotToPage(i)">{{i}}</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+  </div>
+</div>

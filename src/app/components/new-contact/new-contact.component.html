@@ -1,0 +1,78 @@
+<div class="container spacer" *ngIf="mode==1">
+    <div class="panel panel-default">
+        <div class="panel-heading">Enter a Contact</div>
+        <div class="panel-body">
+            <form #f="ngForm" (ngSubmit)="onSaveContact(f.value)">
+                <div class="form-group">
+                    <label class="control-lable">Nom:</label>
+                    <input class="form-control" type="text" ngModel name="nom" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-lable">Prenom:</label>
+                    <input class="form-control" type="text" ngModel name="prenom" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-lable">Email:</label>
+                    <input class="form-control" type="email" ngModel name="email" required email>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-lable">DateNaissance:</label>
+                    <input class="form-control" type="date" ngModel name="dateNaissance" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-lable">Tel:</label>
+                    <input class="form-control" type="text" ngModel name="tel" required>
+                </div>
+
+
+                <button [disabled]="!f.valid" class="btn btn-primary" type="submit">Save</button>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="container spacer" *ngIf="mode==2">
+        <div class="panel panel-default">
+            <div class="panel-heading">Enter a Contact</div>
+            <div class="panel-body">
+                    <div class="form-group">
+                            <label class="control-lable">ID:</label>
+                            <label>{{form.id}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-lable">Nom:</label>
+                        <label>{{form.nom}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-lable">Prenom:</label>
+                        <label>{{form.prenom}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-lable">Email:</label>
+                        <label>{{form.email}}</label>
+                    </div>
+    
+                    <div class="form-group">
+                        <label class="control-lable">DateNaissance:</label>
+                        <label>{{form.dateNaissance}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-lable">Tel:</label>
+                        <label>{{form.tel}}</label>
+                    </div>
+    
+    
+                    <button (click)="mode=1" class="btn btn-primary" type="submit">New Contact</button>
+    
+    
+    
+            </div>
+        </div>
+    
+    </div>
